@@ -7,24 +7,12 @@ import {
   Redirect
 } from 'react-router-dom';
 import styled from 'styled-components';
+import Nav from './components/Nav';
 
 const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-`;
-
-const Nav = styled.nav`
-  border: 1px solid black;
-  > ul {
-    display: flex;
-    > li {
-      width: 33.3%;
-      text-align: center;
-      padding: 16px;
-    }
-  }
-  
 `;
 
 const Main = styled.div`
@@ -53,20 +41,7 @@ function App() {
             </Route>
           </Switch>
         </Main>
-
-        <Nav>
-          <ul>
-            <li>
-              <Link to="/tags">标签</Link>
-            </li>
-            <li>
-              <Link to="/money">记账</Link>
-            </li>
-            <li>
-              <Link to="/statistics">统计</Link>
-            </li>
-          </ul>
-        </Nav>
+        <Nav/>
       </Wrapper>
     </Router>
   );
