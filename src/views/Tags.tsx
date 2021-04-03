@@ -28,10 +28,10 @@ const Button = styled.button`
   background: #f5f5f5;
   padding: 8px 0;
 
-  > svg {
+  .icon {
     height: 36px;
     width: 36px;
-    color: #666666;
+    fill: #666666;
 `;
 
 const Center = styled.div`
