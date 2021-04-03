@@ -20,7 +20,8 @@ const Wrapper = styled.section`
       padding: 3px 18px;
       font-size: 14px;
       margin: 8px 12px;
-      &.selected{
+
+      &.selected {
         background: #339cff;
       }
     }
@@ -36,9 +37,14 @@ const Wrapper = styled.section`
   }
 `;
 
-const TagsSection: React.FC = (props) => {
+type Props = {
+  value: string[];
+  onChange: (selected:string[]) => void
+}
+
+const TagsSection: React.FC<Props> = (props) => {
   const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const selectedTags = props.value;
   const onAddTag = () => {
     const tagName = window.prompt('请输入新标签');
     if (tagName !== null) {
@@ -48,16 +54,17 @@ const TagsSection: React.FC = (props) => {
   const onToggleTag = (tag: string) => {
     const index = selectedTags.indexOf(tag);
     if (index >= 0) {
-      setSelectedTags(selectedTags.filter(t => t !== tag));
+      props.onChange(selectedTags.filter(t => t !== tag));
     } else {
-      setSelectedTags([...selectedTags, tag]);
+      props.onChange([...selectedTags, tag]);
     }
   };
   return (
     <Wrapper>
       <ol>
         {tags.map(tag =>
-          <li key={tag} onClick={() => {onToggleTag(tag);}} className={selectedTags.indexOf(tag)>=0 ? 'selected' : ''}>{tag}</li>
+          <li key={tag} onClick={() => {onToggleTag(tag);}}
+              className={selectedTags.indexOf(tag) >= 0 ? 'selected' : ''}>{tag}</li>
         )}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
