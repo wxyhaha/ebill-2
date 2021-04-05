@@ -5,23 +5,31 @@ import Layout from '../components/Layout';
 import Icon from '../components/Icon';
 import Button from '../components/Button';
 import styled from 'styled-components';
+import Input from '../components/Input';
+import Center from '../components/Center';
+import Space from '../components/Space';
 
 type Prams = {
   id: string
 }
-const Div = styled.div`
-  > Button {
-    .icon {
-      fill: red;
-    }
-  }
-`;
 const Topbar=styled.header`
   display: flex;
   justify-content: space-between;
   line-height: 18px;
   padding: 14px;
   background: white;
+`;
+const InputWrapper=styled.div`
+  background: white;
+  padding:0 16px;
+  margin-top: 8px;
+`;
+const ButtonWrapper = styled.div`
+  > Button {
+    .icon {
+      fill: red;
+    }
+  }
 `;
 const Tag: React.FC = () => {
   const {findTag} = useTags();
@@ -34,17 +42,17 @@ const Tag: React.FC = () => {
         <span>编辑标签</span>
         <Icon/>
       </Topbar>
-      <div>
-        <label>
-          <span>标签名</span>
-          <input type="text" placeholder='标签名'/>
-        </label>
-      </div>
-      <Div>
+      <InputWrapper>
+        <Input label='标签名' type='text' placeholder='标签名'/>
+      </InputWrapper>
+      <Center>
+      <ButtonWrapper>
+        <Space/>
         <Button>
           <Icon name='remove'/>
         </Button>
-      </Div>
+      </ButtonWrapper>
+      </Center>
     </Layout>
   );
 };
