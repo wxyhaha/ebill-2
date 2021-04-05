@@ -16,16 +16,24 @@ const Div = styled.div`
     }
   }
 `;
+const Topbar=styled.header`
+  display: flex;
+  justify-content: space-between;
+  line-height: 18px;
+  padding: 14px;
+  background: white;
+`;
 const Tag: React.FC = () => {
   const {findTag} = useTags();
   let {id} = useParams<Prams>();
   const tag = findTag(parseInt(id));
   return (
     <Layout>
-      <header>
+      <Topbar>
         <Icon name='left'/>
         <span>编辑标签</span>
-      </header>
+        <Icon/>
+      </Topbar>
       <div>
         <label>
           <span>标签名</span>
