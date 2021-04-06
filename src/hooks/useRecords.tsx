@@ -6,23 +6,33 @@ type RecordItem = {
   note: string,
   category: '+' | '-',
   amount: number,
-  createAt:string
+  createAt: string
 }
 type newRecordItem = Omit<RecordItem, 'createAt'>
 export const useRecords = () => {
   const [records, setRecords] = useState<RecordItem[]>([]);
-  useEffect(()=>{
-    setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'))
-  },[])
+  useEffect(() => {
+    setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'));
+  }, []);
 
   const addRecord = (newRecord: newRecordItem) => {
-    const record={...newRecord,createAt:(new Date()).toISOString()}
+    if (newRecord.amount <= 0) {
+      alert('请输入金额')
+      return false;
+    }
+    if(newRecord.tagIds.length===0){
+      alert('请至少选择一个标签')
+      return false;
+
+    }
+    const record = {...newRecord, createAt: (new Date()).toISOString()};
     setRecords([...records, record]);
+    return true;
   };
 
-  useUpdate(()=>{
-      window.localStorage.setItem('records',JSON.stringify(records))
-  },[records])
+  useUpdate(() => {
+    window.localStorage.setItem('records', JSON.stringify(records));
+  }, [records]);
 
   return {records, addRecord};
 };
