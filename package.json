@@ -1,6 +1,7 @@
 {
   "name": "ebill-2",
   "version": "0.1.0",
+  "homepage": "https://wxyhaha.github.io/ebill-2-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
