@@ -32,7 +32,7 @@ export const useRecords = () => {
 
   useUpdate(() => {
     window.localStorage.setItem('records', JSON.stringify(records));
-  }, [records]);
+  }, records);
 
   return {records, addRecord};
 };
