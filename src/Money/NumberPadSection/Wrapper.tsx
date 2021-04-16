@@ -16,56 +16,44 @@ const Wrapper = styled.section`
 
   > .pad {
     > button {
-      float: left;
-      width: 25%;
-      height: 64px;
       font-size: 18px;
-      border: none;
-
+      background: #f3f0f1;
+      width: 20%;
+      height: 64px;
+      float: left;
+      border-radius: 32px;
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+      6px 6px 10px rgba(0, 0, 0, 0.2);
+      margin: 8px 2.5%;
+      top: 45%;
+      left: 0;
+      right: 0;
+      border: 0;
+      transition: 300ms ease-out;
+      cursor: pointer;
+      -webkit-tap-highlight-color:rgba(0,0,0,0);
+      &:active {
+        box-shadow: inset 2px 2px 16px rgba(255,255,255,.9),
+        inset 8px 8px 9px rgba(0,0,0,.2), 5px 10px 5px rgba(0,0,0,.03),
+          -5px -5px 25px rgba(255,255,255,.1), -2px -2px 9px rgba(100,100,100,.1),
+          inset -2px -2px 9px rgba(255,255,255,1);
+        outline: none;
+        background-color: #e5e5ef;
+        text-shadow: -2px -2px 3px rgba(0,0,0,.2), 2px 2px 3px rgba(255,255,255,1);
+        transform: translateY(3px);
+      }
       &.ok {
-        height: 128px;
+        height: 144px;
         float: right;
       }
 
       &.zero {
-        width: 50%;
+        width: 45%;
       }
-
-      &:nth-child(1) {
-        background: #f2f2f2;
+      > svg{
+        height: 24px;
+        width: 24px;
       }
-
-      &:nth-child(2),
-      &:nth-child(5) {
-        background: #e0e0e0;
-      }
-
-      &:nth-child(3),
-      &:nth-child(6),
-      &:nth-child(9) {
-        background: #d3d3d3;
-      }
-
-      &:nth-child(4),
-      &:nth-child(7),
-      &:nth-child(10) {
-        background: #c1c1c1;
-      }
-
-      &:nth-child(8),
-      &:nth-child(11),
-      &:nth-child(13) {
-        background: #b8b8b8;
-      }
-
-      &:nth-child(12) {
-        background: #9a9a9a;
-      }
-
-      &:nth-child(14) {
-        background: #a9a9a9;
-      }
-    }
   }
 `;
 
